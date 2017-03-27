@@ -14,9 +14,9 @@ namespace DelegateSample
         int a;
         int b;
 
-        public int PrintOK(this)
+        public void PrintOK()
         {
-            return (this.a + this.b);
+            Console.WriteLine (this.a + this.b);
        
         }
     }
@@ -29,7 +29,7 @@ namespace DelegateSample
         public PrintDelegate pd;
         public int PrintOK()
         {
-            pd.Invoke(this);
+            pd.Invoke();
             return 0;
         }
     }
@@ -43,8 +43,8 @@ namespace DelegateSample
             SimpleClass s = new SimpleClass();
             s.a = 6;
             s.b = 3;
-            s.pd = c.PrintOK(this);
-            s.PrintOK(this);
+            s.pd = c.PrintOK;
+            s.PrintOK();
         }
     }
 }
